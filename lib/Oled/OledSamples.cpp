@@ -1,6 +1,6 @@
 #include "Oled.h"
 
-void Oled::testdrawline()
+void Oled::testDrawline()
 {
     int16_t i;
 
@@ -70,7 +70,7 @@ void Oled::testdrawline()
     delay(2000); // Pause for 2 seconds
 }
 
-void Oled::testdrawrect(void)
+void Oled::testDrawrect(void)
 {
     display.clearDisplay();
 
@@ -84,7 +84,7 @@ void Oled::testdrawrect(void)
     delay(2000);
 }
 
-void Oled::testfillrect(void)
+void Oled::testFillrect(void)
 {
     display.clearDisplay();
 
@@ -99,7 +99,7 @@ void Oled::testfillrect(void)
     delay(2000);
 }
 
-void Oled::testdrawcircle(void)
+void Oled::testDrawcircle(void)
 {
     display.clearDisplay();
 
@@ -113,7 +113,7 @@ void Oled::testdrawcircle(void)
     delay(2000);
 }
 
-void Oled::testfillcircle(void)
+void Oled::testFillcircle(void)
 {
     display.clearDisplay();
 
@@ -128,7 +128,7 @@ void Oled::testfillcircle(void)
     delay(2000);
 }
 
-void Oled::testdrawroundrect(void)
+void Oled::testDrawroundrect(void)
 {
     display.clearDisplay();
 
@@ -143,7 +143,7 @@ void Oled::testdrawroundrect(void)
     delay(2000);
 }
 
-void Oled::testfillroundrect(void)
+void Oled::testFillroundrect(void)
 {
     display.clearDisplay();
 
@@ -159,7 +159,7 @@ void Oled::testfillroundrect(void)
     delay(2000);
 }
 
-void Oled::testdrawtriangle(void)
+void Oled::testDrawtriangle(void)
 {
     display.clearDisplay();
 
@@ -176,7 +176,7 @@ void Oled::testdrawtriangle(void)
     delay(2000);
 }
 
-void Oled::testfilltriangle(void)
+void Oled::testFilltriangle(void)
 {
     display.clearDisplay();
 
@@ -194,7 +194,7 @@ void Oled::testfilltriangle(void)
     delay(2000);
 }
 
-void Oled::testdrawchar(void)
+void Oled::testDrawchar(void)
 {
     display.clearDisplay();
 
@@ -217,7 +217,7 @@ void Oled::testdrawchar(void)
     delay(2000);
 }
 
-void Oled::testdrawstyles(void)
+void Oled::testDrawstyles(void)
 {
     display.clearDisplay();
 
@@ -238,7 +238,7 @@ void Oled::testdrawstyles(void)
     delay(2000);
 }
 
-void Oled::testscrolltext(void)
+void Oled::testScrolltext(void)
 {
     display.clearDisplay();
 

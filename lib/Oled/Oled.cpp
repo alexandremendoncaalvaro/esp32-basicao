@@ -11,12 +11,12 @@ bool Oled::begin()
     }
     display.clearDisplay();
 
-    testdrawchar(); // Draw characters of the default font
+    testDrawchar(); // Draw characters of the default font
 
-    delay(2000);
-    display.clearDisplay();
+    // delay(2000);
+    // display.clearDisplay();
 
-    display.display();
+    // display.display();
 
     debugger.println(F("[OLED] OLED Ok!"));
     debugger.println();

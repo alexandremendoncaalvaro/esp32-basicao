@@ -16,18 +16,18 @@ private:
 
     Adafruit_SSD1306 display = Adafruit_SSD1306(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-    void testdrawline();      // Draw many lines
-    void testdrawrect();      // Draw rectangles (outlines)
-    void testfillrect();      // Draw rectangles (filled)
-    void testdrawcircle();    // Draw circles (outlines)
-    void testfillcircle();    // Draw circles (filled)
-    void testdrawroundrect(); // Draw rounded rectangles (outlines)
-    void testfillroundrect(); // Draw rounded rectangles (filled)
-    void testdrawtriangle();  // Draw triangles (outlines)
-    void testfilltriangle();  // Draw triangles (filled)
-    void testdrawchar();      // Draw characters of the default font
-    void testdrawstyles();    // Draw 'stylized' characters
-    void testscrolltext();    // Draw scrolling text
+    void testDrawline();      // Draw many lines
+    void testDrawrect();      // Draw rectangles (outlines)
+    void testFillrect();      // Draw rectangles (filled)
+    void testDrawcircle();    // Draw circles (outlines)
+    void testFillcircle();    // Draw circles (filled)
+    void testDrawroundrect(); // Draw rounded rectangles (outlines)
+    void testFillroundrect(); // Draw rounded rectangles (filled)
+    void testDrawtriangle();  // Draw triangles (outlines)
+    void testFilltriangle();  // Draw triangles (filled)
+    void testDrawchar();      // Draw characters of the default font
+    void testDrawstyles();    // Draw 'stylized' characters
+    void testScrolltext();    // Draw scrolling text
 
 public:
     bool begin();
