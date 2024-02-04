@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
-#include "BasicSettings.h"
+#include "SystemResources.h"
 #include "Debugger.h"
 #include "DualCore.h"
 #include "Duration.h"

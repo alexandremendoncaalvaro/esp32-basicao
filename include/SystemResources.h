@@ -3,7 +3,7 @@
 #include <Arduino.h>
 #include "Debugger.h"
 
-namespace BasicSettings
+namespace SystemResources
 {
     void reboot()
     {
@@ -20,4 +20,4 @@ namespace BasicSettings
         debugger.println();
     }
 
-} // namespace BasicSettings
+} // namespace SystemResources

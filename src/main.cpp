@@ -1,9 +1,9 @@
 #include "main.h"
 
+using namespace SystemResources;
+
 void setup()
 {
-  using namespace BasicSettings;
-
   debugger.setDebug(true);
   SerialBegin();
   _initializeServices();
@@ -23,8 +23,6 @@ void loopCoreApp()
 
 void _initializeServices()
 {
-  using namespace BasicSettings;
-
   if (!dualCore.begin() ||
       !inputInterface.begin() ||
       !oled.begin())
