@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "author": "Alexandre Mendonça Alvaro",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 352.2, "left": -131.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 99.14,
+      "left": 230.63,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 441,
+      "left": -93,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 412.2,
+      "left": -35.4,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 450.6,
+      "left": 22.2,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": 441,
+      "left": 79.8,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "bb1:tn.25", "bb1:bn.25", "cyan", [ "h40", "v174" ] ],
+    [ "bb1:23b.j", "bb1:bn.19", "cyan", [ "v0" ] ],
+    [ "bb1:11b.j", "bb1:bn.9", "cyan", [ "v0" ] ],
+    [ "bb1:5b.j", "bb1:bn.4", "cyan", [ "v0" ] ],
+    [ "bb1:17t.a", "bb1:tn.14", "cyan", [ "v0" ] ],
+    [ "bb1:7t.a", "esp:14", "green", [ "v0" ] ],
+    [ "bb1:25t.c", "esp:15", "green", [ "v0" ] ],
+    [ "btn2:1.l", "esp:12", "green", [ "v-134.4", "h-48", "v-124.8" ] ],
+    [ "btn2:1.l", "bb1:13t.a", "", [ "$bb" ] ],
+    [ "btn2:2.l", "bb1:11t.a", "", [ "$bb" ] ],
+    [ "btn2:1.r", "bb1:13b.f", "", [ "$bb" ] ],
+    [ "btn2:2.r", "bb1:11b.f", "", [ "$bb" ] ],
+    [ "btn3:1.l", "bb1:19t.e", "", [ "$bb" ] ],
+    [ "btn3:2.l", "bb1:17t.e", "", [ "$bb" ] ],
+    [ "btn3:1.r", "bb1:19b.j", "", [ "$bb" ] ],
+    [ "btn3:2.r", "bb1:17b.j", "", [ "$bb" ] ],
+    [ "btn4:1.l", "bb1:25t.d", "", [ "$bb" ] ],
+    [ "btn4:2.l", "bb1:23t.d", "", [ "$bb" ] ],
+    [ "btn4:1.r", "bb1:25b.i", "", [ "$bb" ] ],
+    [ "btn4:2.r", "bb1:23b.i", "", [ "$bb" ] ],
+    [ "btn1:1.l", "bb1:7t.d", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:5t.d", "", [ "$bb" ] ],
+    [ "btn1:1.r", "bb1:7b.i", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:5b.i", "", [ "$bb" ] ],
+    [ "bb1:19t.a", "esp:13", "green", [ "v-153.6", "h-96", "v-86.4" ] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "bb1:tn.25", "esp:GND.3", "cyan", [ "v0" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v-124.8", "h-273.64" ] ],
+    [ "esp:22", "oled1:SCL", "orange", [ "h0" ] ],
+    [ "oled1:SDA", "esp:21", "gold", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
