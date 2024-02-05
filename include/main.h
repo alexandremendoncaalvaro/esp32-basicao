@@ -1,12 +1,14 @@
 #pragma once
 
 #include <Arduino.h>
-#include "SystemResources.h"
+#include "core.h"
 #include "Debugger.h"
 #include "DualCore.h"
 #include "Duration.h"
 #include "Oled.h"
 #include "InputInterface.h"
+
+using namespace core;
 
 void loopCoreProtocol();
 void loopCoreApp();

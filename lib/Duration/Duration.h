@@ -1,8 +1,11 @@
 #pragma once
-
+// Based on example from: https://github.com/LuckyResistor/unit-type-example
+// -----------------------------------------------------------------------------
+// Duration Abstract Interface
+// -----------------------------------------------------------------------------
+// (c)2019 by Lucky Resistor. See LICENSE for details.
 #include <cstdint>
 #include <ratio>
-
 /// A simple duration type similar to the standard library.
 ///
 /// This duration is simplified for the usage in embedded code.
@@ -13,13 +16,11 @@
 /// which can be verified by functions to make sure the correct
 /// durations are passed. It does also greatly improve the
 /// readability of the code.
-///
 template <typename TickType, typename Ratio>
 class Duration
 {
 public:
     /// Create a new duration.
-    ///
     constexpr explicit Duration(TickType ticks) noexcept : _ticks(ticks) {}
 
 public: // Operators
@@ -34,11 +35,9 @@ public: // Operators
 
 public:
     /// Get the number of ticks.
-    ///
     constexpr inline TickType ticks() const noexcept { return _ticks; }
 
     /// Convert to Milliseconds.
-    ///
     constexpr inline Duration<TickType, std::milli> toMilliseconds() const noexcept
     {
         typedef std::ratio_divide<Ratio, std::milli> r;
@@ -50,7 +49,6 @@ private:
 };
 
 /// Seconds
-///
 typedef Duration<uint32_t, std::ratio<1, 1>> Seconds;
 constexpr Seconds operator"" _s(unsigned long long int ticks)
 {
@@ -58,7 +56,6 @@ constexpr Seconds operator"" _s(unsigned long long int ticks)
 }
 
 /// Milliseconds.
-///
 typedef Duration<uint32_t, std::milli> Milliseconds;
 constexpr Milliseconds operator"" _ms(unsigned long long int ticks)
 {
@@ -66,7 +63,6 @@ constexpr Milliseconds operator"" _ms(unsigned long long int ticks)
 }
 
 /// Microseconds.
-///
 typedef Duration<uint32_t, std::micro> Microseconds;
 constexpr Microseconds operator"" _us(unsigned long long int ticks)
 {
@@ -74,7 +70,6 @@ constexpr Microseconds operator"" _us(unsigned long long int ticks)
 }
 
 /// Nanoseconds.
-///
 typedef Duration<uint32_t, std::nano> Nanoseconds;
 constexpr Nanoseconds operator"" _ns(unsigned long long int ticks)
 {

@@ -1,7 +1,5 @@
 #include "main.h"
 
-using namespace SystemResources;
-
 void setup()
 {
   debugger.setDebug(true);
@@ -23,9 +21,10 @@ void loopCoreApp()
 
 void _initializeServices()
 {
-  if (!dualCore.begin() ||
+  if (
       !inputInterface.begin() ||
-      !oled.begin())
+      !oled.begin() ||
+      !dualCore.begin())
   {
     reboot();
   }
