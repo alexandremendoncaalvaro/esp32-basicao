@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["oled"]
+  "cSpell.words": ["oled"],
+  "files.associations": {
+    "unordered_map": "cpp"
+  }
 }

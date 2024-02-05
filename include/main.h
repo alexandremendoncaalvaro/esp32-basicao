@@ -6,7 +6,7 @@
 #include "DualCore.h"
 #include "Duration.h"
 #include "Oled.h"
-#include "InputInterface.h"
+#include "Menu.h"
 
 using namespace core;
 

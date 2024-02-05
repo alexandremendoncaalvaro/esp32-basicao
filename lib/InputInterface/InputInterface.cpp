@@ -18,6 +18,16 @@ void InputInterface::handleInputs()
     }
 }
 
+void InputInterface::setShortPressCommands(unordered_map<int, function<void()>> &commands)
+{
+    shortPressCommands = commands;
+}
+
+void InputInterface::setLongPressCommands(unordered_map<int, function<void()>> &commands)
+{
+    longPressCommands = commands;
+}
+
 void InputInterface::handleShortPress(PulseButton &button)
 {
     if (button.isShortPressed())
@@ -41,60 +51,6 @@ void InputInterface::executeButtonRelativeCommand(PulseButton &button, unordered
     {
         buttonAndCallbackPair->second(); // executes the second item of the pair
     }
-}
-
-void InputInterface::printCounter()
-{
-    Serial.print(F("Contador: "));
-    Serial.println(_counter);
-    Serial.println();
-}
-
-void InputInterface::doShortPressActionEnter()
-{
-    debugger.println(F("[INPUT] ENTER!"));
-    InputInterface::printCounter();
-}
-
-void InputInterface::doShortPressActionCancel()
-{
-    debugger.println(F("[INPUT] CANCEL!"));
-    _counter = 0;
-    InputInterface::printCounter();
-}
-
-void InputInterface::doShortPressActionLeft()
-{
-    debugger.println(F("[INPUT] LEFT!"));
-    _counter--;
-    InputInterface::printCounter();
-}
-
-void InputInterface::doShortPressActionRight()
-{
-    debugger.println(F("[INPUT] RIGHT!"));
-    _counter++;
-    InputInterface::printCounter();
-}
-
-void InputInterface::doLongPressActionEnter()
-{
-    debugger.println(F("[INPUT] LONG ENTER!"));
-}
-
-void InputInterface::doLongPressActionCancel()
-{
-    debugger.println(F("[INPUT] LONG CANCEL!"));
-}
-
-void InputInterface::doLongPressActionLeft()
-{
-    debugger.println(F("[INPUT] LONG LEFT!"));
-}
-
-void InputInterface::doLongPressActionRight()
-{
-    debugger.println(F("[INPUT] LONG RIGHT!"));
 }
 
 InputInterface inputInterface;
