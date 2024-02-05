@@ -43,24 +43,38 @@ void InputInterface::executeButtonRelativeCommand(PulseButton &button, unordered
     }
 }
 
+void InputInterface::printCounter()
+{
+    Serial.print(F("Contador: "));
+    Serial.println(_counter);
+    Serial.println();
+}
+
 void InputInterface::doShortPressActionEnter()
 {
     debugger.println(F("[INPUT] ENTER!"));
+    InputInterface::printCounter();
 }
 
 void InputInterface::doShortPressActionCancel()
 {
     debugger.println(F("[INPUT] CANCEL!"));
+    _counter = 0;
+    InputInterface::printCounter();
 }
 
 void InputInterface::doShortPressActionLeft()
 {
     debugger.println(F("[INPUT] LEFT!"));
+    _counter--;
+    InputInterface::printCounter();
 }
 
 void InputInterface::doShortPressActionRight()
 {
     debugger.println(F("[INPUT] RIGHT!"));
+    _counter++;
+    InputInterface::printCounter();
 }
 
 void InputInterface::doLongPressActionEnter()

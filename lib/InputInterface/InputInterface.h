@@ -11,6 +11,10 @@ using namespace std;
 class InputInterface
 {
 private:
+    int _counter = 0;
+
+    void printCounter();
+
     enum MENU_BUTTON
     {
         ENTER = 12,
