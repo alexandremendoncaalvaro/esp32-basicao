@@ -27,5 +27,3 @@ private:
 public:
     MainMenu();
 };
-
-extern MainMenu mainMenu;

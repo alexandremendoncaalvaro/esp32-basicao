@@ -9,9 +9,12 @@
 class ScreenManager
 {
 private:
+    Screen *_screen;
+    void applyScreen();
+
 public:
     bool begin();
-    void setScreen(Screen &screen);
+    void setScreen(Screen *screen);
 };
 
 extern ScreenManager screenManager;

@@ -85,5 +85,3 @@ MainMenu::MainMenu()
         {BUTTON::RIGHT, [this]()
          { doLongPressActionRight(); }}};
 }
-
-MainMenu mainMenu;
