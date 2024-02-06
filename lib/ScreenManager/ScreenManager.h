@@ -14,7 +14,7 @@ private:
 
 public:
     bool begin();
-    void setScreen(Screen *screen);
+    void setScreen(SCREEN_NUMBER screen);
 };
 
 extern ScreenManager screenManager;

@@ -26,4 +26,5 @@ private:
 
 public:
     MainMenu();
+    void setCallback(function<void(SCREEN_NUMBER)> callback) override;
 };

@@ -18,6 +18,11 @@ void MainMenu::doShortPressActionEnter()
 {
     debugger.println(F("[INPUT] ENTER!"));
     MainMenu::printMenuOption();
+    if (_menuOption == 1)
+    {
+        debugger.println(F("[MAIN_MENU] Setting Callback!"));
+        callback(SCREEN_NUMBER::SETTINGS);
+    }
 }
 
 void MainMenu::doShortPressActionLeft()
@@ -84,4 +89,9 @@ MainMenu::MainMenu()
          { doLongPressActionLeft(); }},
         {BUTTON::RIGHT, [this]()
          { doLongPressActionRight(); }}};
+}
+
+void MainMenu::setCallback(function<void(SCREEN_NUMBER)> callback)
+{
+    this->callback = callback;
 }
