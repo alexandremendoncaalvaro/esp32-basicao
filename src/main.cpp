@@ -22,7 +22,7 @@ void loopCoreApp()
 void _initializeServices()
 {
   if (
-      !menu.begin() ||
+      !screenManager.begin() ||
       !oled.begin() ||
       !dualCore.begin())
   {

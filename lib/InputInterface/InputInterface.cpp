@@ -21,11 +21,13 @@ void InputInterface::handleInputs()
 void InputInterface::setShortPressCommands(unordered_map<int, function<void()>> &commands)
 {
     shortPressCommands = commands;
+    debugger.println(F("[INPUT_INTERFACE] Short Press Commands Set!"));
 }
 
 void InputInterface::setLongPressCommands(unordered_map<int, function<void()>> &commands)
 {
     longPressCommands = commands;
+    debugger.println(F("[INPUT_INTERFACE] Long Press Commands Set!"));
 }
 
 void InputInterface::handleShortPress(PulseButton &button)

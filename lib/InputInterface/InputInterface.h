@@ -11,8 +11,8 @@ namespace button_interface
 {
     enum BUTTON
     {
-        ENTER = 12,
-        CANCEL = 13,
+        CANCEL = 12,
+        ENTER = 13,
         LEFT = 14,
         RIGHT = 15
     };
@@ -24,8 +24,8 @@ class InputInterface
 {
 private:
     PulseButton _buttons[4] = {
-        PulseButton(BUTTON::ENTER),
         PulseButton(BUTTON::CANCEL),
+        PulseButton(BUTTON::ENTER),
         PulseButton(BUTTON::LEFT),
         PulseButton(BUTTON::RIGHT),
     };
