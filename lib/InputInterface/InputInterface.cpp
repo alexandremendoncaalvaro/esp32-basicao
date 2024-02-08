@@ -2,7 +2,7 @@
 
 bool InputInterface::begin()
 {
-    debugger.println(F("[INPUT_INTERFACE] Input Interface Ok!"));
+    debugger.println(F("[INPUT INTERFACE] Input Interface Ok!"));
     debugger.println();
 
     return true;
@@ -21,13 +21,13 @@ void InputInterface::handleInputs()
 void InputInterface::setShortPressCommands(unordered_map<int, function<void()>> &commands)
 {
     shortPressCommands = commands;
-    debugger.println(F("[INPUT_INTERFACE] Short Press Commands Set!"));
+    debugger.println(F("[INPUT INTERFACE] Short Press Commands Set!"));
 }
 
 void InputInterface::setLongPressCommands(unordered_map<int, function<void()>> &commands)
 {
     longPressCommands = commands;
-    debugger.println(F("[INPUT_INTERFACE] Long Press Commands Set!"));
+    debugger.println(F("[INPUT INTERFACE] Long Press Commands Set!"));
 }
 
 void InputInterface::handleShortPress(PulseButton &button)

@@ -22,9 +22,9 @@ void loopCoreApp()
 void _initializeServices()
 {
   if (
-      !screenManager.begin() ||
+      !dualCore.begin() ||
       !oled.begin() ||
-      !dualCore.begin())
+      !screenManager.begin())
   {
     reboot();
   }

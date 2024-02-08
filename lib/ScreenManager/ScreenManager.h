@@ -4,7 +4,8 @@
 #include <functional>
 #include "InputInterface.h"
 #include "Screen.h"
-#include "MainMenu.h"
+#include "ScreenMainMenu.h"
+#include "ScreenSettings.h"
 
 class ScreenManager
 {

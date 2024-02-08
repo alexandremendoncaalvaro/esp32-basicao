@@ -7,10 +7,23 @@
 
 using namespace button_interface;
 
-class MainMenu : public Screen
+class ScreenSettings : public Screen
 {
 private:
-    int _menuOption = 0;
+    const int FIRST_MENU_OPTION = 10;
+    const int LAST_MENU_OPTION = 15;
+
+    int _menuOption = FIRST_MENU_OPTION;
+
+    enum MENU_OPTION
+    {
+        UP = 10,
+        FIRST = 11,
+        SECOND = 12,
+        THIRD = 13,
+        FOURTH = 14,
+        FIFTH = 15
+    };
 
     void printMenuOption();
 
@@ -25,6 +38,6 @@ private:
     void doLongPressActionRight();
 
 public:
-    MainMenu();
+    ScreenSettings();
     void setCallback(function<void(SCREEN_NUMBER)> callback) override;
 };

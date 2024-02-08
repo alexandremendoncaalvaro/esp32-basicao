@@ -1,0 +1,41 @@
+#pragma once
+#include <Arduino.h>
+#include <unordered_map>
+#include <functional>
+#include "InputInterface.h"
+#include "Screen.h"
+
+using namespace button_interface;
+
+class ScreenMainMenu : public Screen
+{
+private:
+    const int FIRST_MENU_OPTION = 0;
+    const int LAST_MENU_OPTION = 3;
+
+    int _menuOption = FIRST_MENU_OPTION;
+
+    enum MENU_OPTION
+    {
+        UP = 0,
+        SETTINGS = 1,
+        SECOND = 2,
+        THIRD = 3
+    };
+
+    void printMenuOption();
+
+    void doShortPressActionCancel();
+    void doShortPressActionEnter();
+    void doShortPressActionLeft();
+    void doShortPressActionRight();
+
+    void doLongPressActionCancel();
+    void doLongPressActionEnter();
+    void doLongPressActionLeft();
+    void doLongPressActionRight();
+
+public:
+    ScreenMainMenu();
+    void setCallback(function<void(SCREEN_NUMBER)> callback) override;
+};
