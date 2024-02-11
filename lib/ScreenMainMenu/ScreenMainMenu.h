@@ -10,19 +10,20 @@ using namespace button_interface;
 class ScreenMainMenu : public Screen
 {
 private:
-    const int FIRST_MENU_OPTION = 0;
-    const int LAST_MENU_OPTION = 3;
-
-    int _menuOption = FIRST_MENU_OPTION;
-
     enum MENU_OPTION
     {
         UP = 0,
         SETTINGS = 1,
         SECOND = 2,
-        THIRD = 3
+        THIRD = 3,
     };
 
+    const int FIRST_MENU_OPTION = MENU_OPTION::UP;
+    const int LAST_MENU_OPTION = MENU_OPTION::THIRD;
+
+    int _menuOption = FIRST_MENU_OPTION;
+
+    void registerFunctions();
     void printMenuOption();
 
     void doShortPressActionCancel();

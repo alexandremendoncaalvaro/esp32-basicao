@@ -1,18 +1,7 @@
 #include "ScreenSettings.h"
 
-void ScreenSettings::printMenuOption()
-{
-    Serial.print(F("Option: "));
-    Serial.println(_menuOption);
-    Serial.println();
-}
-
-void ScreenSettings::doShortPressActionCancel()
-{
-    debugger.println(F("[SETTINGS] CANCEL!"));
-    _menuOption = FIRST_MENU_OPTION;
-    ScreenSettings::printMenuOption();
-}
+// -----------------------------------------------------------------------------
+// Short Press Actions
 
 void ScreenSettings::doShortPressActionEnter()
 {
@@ -49,6 +38,13 @@ void ScreenSettings::doShortPressActionEnter()
     debugger.println();
 }
 
+void ScreenSettings::doShortPressActionCancel()
+{
+    debugger.println(F("[SETTINGS] CANCEL!"));
+    _menuOption = FIRST_MENU_OPTION;
+    ScreenSettings::printMenuOption();
+}
+
 void ScreenSettings::doShortPressActionLeft()
 {
     debugger.println(F("[SETTINGS] LEFT!"));
@@ -71,14 +67,17 @@ void ScreenSettings::doShortPressActionRight()
     ScreenSettings::printMenuOption();
 }
 
-void ScreenSettings::doLongPressActionCancel()
-{
-    debugger.println(F("[SETTINGS] LONG CANCEL!"));
-}
+// -----------------------------------------------------------------------------
+// Long Press Actions
 
 void ScreenSettings::doLongPressActionEnter()
 {
     debugger.println(F("[SETTINGS] LONG ENTER!"));
+}
+
+void ScreenSettings::doLongPressActionCancel()
+{
+    debugger.println(F("[SETTINGS] LONG CANCEL!"));
 }
 
 void ScreenSettings::doLongPressActionLeft()
@@ -91,11 +90,23 @@ void ScreenSettings::doLongPressActionRight()
     debugger.println(F("[SETTINGS] LONG RIGHT!"));
 }
 
-ScreenSettings::ScreenSettings()
-{
-    debugger.println(F("[SETTINGS] Loaded!"));
-    debugger.println();
+// -----------------------------------------------------------------------------
+// Core Functions
 
+void ScreenSettings::printMenuOption()
+{
+    Serial.print(F("Option: "));
+    Serial.println(_menuOption);
+    Serial.println();
+}
+
+void ScreenSettings::setCallback(function<void(SCREEN_NUMBER)> callback)
+{
+    this->callback = callback;
+}
+
+void ScreenSettings::registerFunctions()
+{
     shortPressCommands = {
         {BUTTON::CANCEL, [this]()
          { doShortPressActionCancel(); }},
@@ -117,7 +128,10 @@ ScreenSettings::ScreenSettings()
          { doLongPressActionRight(); }}};
 }
 
-void ScreenSettings::setCallback(function<void(SCREEN_NUMBER)> callback)
+ScreenSettings::ScreenSettings()
 {
-    this->callback = callback;
+    debugger.println(F("[SETTINGS] Loaded!"));
+    debugger.println();
+
+    registerFunctions();
 }

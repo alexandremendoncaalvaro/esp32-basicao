@@ -1,18 +1,7 @@
 #include "ScreenMainMenu.h"
 
-void ScreenMainMenu::printMenuOption()
-{
-    Serial.print(F("Option: "));
-    Serial.println(_menuOption);
-    Serial.println();
-}
-
-void ScreenMainMenu::doShortPressActionCancel()
-{
-    debugger.println(F("[MAIN MENU] CANCEL!"));
-    _menuOption = MENU_OPTION::UP;
-    ScreenMainMenu::printMenuOption();
-}
+// -----------------------------------------------------------------------------
+// Short Press Actions
 
 void ScreenMainMenu::doShortPressActionEnter()
 {
@@ -42,6 +31,13 @@ void ScreenMainMenu::doShortPressActionEnter()
     debugger.println();
 }
 
+void ScreenMainMenu::doShortPressActionCancel()
+{
+    debugger.println(F("[MAIN MENU] CANCEL!"));
+    _menuOption = MENU_OPTION::UP;
+    ScreenMainMenu::printMenuOption();
+}
+
 void ScreenMainMenu::doShortPressActionLeft()
 {
     debugger.println(F("[MAIN MENU] LEFT!"));
@@ -64,14 +60,17 @@ void ScreenMainMenu::doShortPressActionRight()
     ScreenMainMenu::printMenuOption();
 }
 
-void ScreenMainMenu::doLongPressActionCancel()
-{
-    debugger.println(F("[MAIN MENU] LONG CANCEL!"));
-}
+// -----------------------------------------------------------------------------
+// Long Press Actions
 
 void ScreenMainMenu::doLongPressActionEnter()
 {
     debugger.println(F("[MAIN MENU] LONG ENTER!"));
+}
+
+void ScreenMainMenu::doLongPressActionCancel()
+{
+    debugger.println(F("[MAIN MENU] LONG CANCEL!"));
 }
 
 void ScreenMainMenu::doLongPressActionLeft()
@@ -84,11 +83,23 @@ void ScreenMainMenu::doLongPressActionRight()
     debugger.println(F("[MAIN MENU] LONG RIGHT!"));
 }
 
-ScreenMainMenu::ScreenMainMenu()
-{
-    debugger.println(F("[MAIN MENU] Loaded!"));
-    debugger.println();
+// -----------------------------------------------------------------------------
+// Core Functions
 
+void ScreenMainMenu::printMenuOption()
+{
+    Serial.print(F("Option: "));
+    Serial.println(_menuOption);
+    Serial.println();
+}
+
+void ScreenMainMenu::setCallback(function<void(SCREEN_NUMBER)> callback)
+{
+    this->callback = callback;
+}
+
+void ScreenMainMenu::registerFunctions()
+{
     shortPressCommands = {
         {BUTTON::CANCEL, [this]()
          { doShortPressActionCancel(); }},
@@ -110,7 +121,10 @@ ScreenMainMenu::ScreenMainMenu()
          { doLongPressActionRight(); }}};
 }
 
-void ScreenMainMenu::setCallback(function<void(SCREEN_NUMBER)> callback)
+ScreenMainMenu::ScreenMainMenu()
 {
-    this->callback = callback;
+    debugger.println(F("[MAIN MENU] Loaded!"));
+    debugger.println();
+
+    registerFunctions();
 }
